@@ -1,5 +1,5 @@
+use anyhow::{Context, Result};
 use serde::Deserialize;
-use std::error::Error;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -26,11 +26,15 @@ struct ApiReward {
     required_minutes_watched: u16,
 }
 
-fn main() -> Result<(), Box<dyn Error>>{
+fn main() -> Result<()> {
     println!("fetching open drop campaigns...");
 
-    let json_string  = reqwest::blocking::get("https://twitch-drops-api.sunkwi.com/drops")?.text()?;
-    let api_data: Vec<ApiGame> = serde_json::from_str(&json_string)?;
+    let json_string = reqwest::blocking::get("https://twitch-drops-api.sunkwi.com/drops")
+        .context("failed to fetch from api")?
+        .text()
+        .context("failed to get response text")?;
+    let api_data: Vec<ApiGame> =
+        serde_json::from_str(&json_string).context("failed to parse json")?;
 
     Ok(())
 }
