@@ -1,4 +1,5 @@
 use anyhow::{Context, Result};
+use chrono::{DateTime, Utc};
 use reqwest;
 use serde::Deserialize;
 
@@ -16,8 +17,8 @@ struct ApiGame {
 #[serde(rename_all = "camelCase")]
 struct ApiDrops {
     name: String,
-    start_at: String,
-    end_at: String,
+    start_at: DateTime<Utc>,
+    end_at: DateTime<Utc>,
     #[serde(rename = "timeBasedDrops")]
     rewards: Vec<ApiReward>,
 }
