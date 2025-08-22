@@ -1,5 +1,8 @@
 use anyhow::{Context, Result};
+use reqwest;
 use serde::Deserialize;
+
+const DROPS_API_URL: &str = "https://twitch-drops-api.sunkwi.com/drops";
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -23,18 +26,23 @@ struct ApiDrops {
 #[serde(rename_all = "camelCase")]
 struct ApiReward {
     name: String,
-    required_minutes_watched: u16,
+    #[serde(rename = "requiredMinutesWatched")]
+    minutes_required: u16,
 }
 
 fn main() -> Result<()> {
-    println!("fetching open drop campaigns...");
-
-    let json_string = reqwest::blocking::get("https://twitch-drops-api.sunkwi.com/drops")
-        .context("failed to fetch from api")?
-        .text()
-        .context("failed to get response text")?;
-    let api_data: Vec<ApiGame> =
-        serde_json::from_str(&json_string).context("failed to parse json")?;
+    let game_data = fetch_game_data()?;
 
     Ok(())
+}
+
+fn fetch_game_data() -> Result<Vec<ApiGame>> {
+    eprintln!("fetching open drop campaigns...");
+
+    let game_data = reqwest::blocking::get(DROPS_API_URL)
+        .context("failed to fetch from api")?
+        .json::<Vec<ApiGame>>()
+        .context("failed to parse json response")?;
+
+    Ok(game_data)
 }
