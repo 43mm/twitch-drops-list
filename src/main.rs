@@ -2,6 +2,8 @@ use anyhow::{Context, Result};
 use chrono::{DateTime, Utc};
 use reqwest;
 use serde::Deserialize;
+use std::fs::File;
+use std::io::{BufWriter, Write};
 
 const DROPS_API_URL: &str = "https://twitch-drops-api.sunkwi.com/drops";
 
@@ -33,6 +35,28 @@ struct ApiReward {
 
 fn main() -> Result<()> {
     let game_data = fetch_game_data()?;
+
+    let file = File::create("README.md");
+    let mut writer = BufWriter::new(file.context("failed to create README.md")?);
+    writeln!(writer, "# Twitch Drops Campaigns\n")?;
+    for game in game_data {
+        writeln!(writer, "{}", game.game_display_name)?;
+        for drop in game.drops {
+            writeln!(
+                writer,
+                "- {} ({} to {})",
+                drop.name, drop.start_at, drop.end_at
+            )?;
+            for reward in drop.rewards {
+                writeln!(
+                    writer,
+                    "  - {} ({} minutes watched)",
+                    reward.name, reward.minutes_required
+                )?;
+            }
+            writeln!(writer)?;
+        }
+    }
 
     Ok(())
 }
