@@ -19,7 +19,6 @@ struct ApiGame {
 #[serde(rename_all = "camelCase")]
 struct ApiDrops {
     name: String,
-    start_at: DateTime<Utc>,
     end_at: DateTime<Utc>,
     #[serde(rename = "timeBasedDrops")]
     rewards: Vec<ApiReward>,
@@ -35,18 +34,23 @@ struct ApiReward {
 
 fn main() -> Result<()> {
     let game_data = fetch_game_data()?;
+    let now = Utc::now();
 
     let file = File::create("README.md");
     let mut writer = BufWriter::new(file.context("failed to create README.md")?);
+
     writeln!(writer, "# Twitch Drops Campaigns\n")?;
+
     for game in game_data {
         writeln!(writer, "{}", game.game_display_name)?;
         for drop in game.drops {
-            writeln!(
-                writer,
-                "- {} ({} to {})",
-                drop.name, drop.start_at, drop.end_at
-            )?;
+            let days = drop.end_at.signed_duration_since(now).num_days() as i16;
+            let end = if days < 0 {
+                "already ended".to_string()
+            } else {
+                format!("ends {}", format_days_from_now(days))
+            };
+            writeln!(writer, "- {} ({})", drop.name, end)?;
             for reward in drop.rewards {
                 writeln!(
                     writer,
@@ -70,4 +74,12 @@ fn fetch_game_data() -> Result<Vec<ApiGame>> {
         .context("failed to parse json response")?;
 
     Ok(game_data)
+}
+
+fn format_days_from_now(days: i16) -> String {
+    match days {
+        0 => "today".into(),
+        1 => "tomorrow".into(),
+        _ => format!("in {} days", days),
+    }
 }
