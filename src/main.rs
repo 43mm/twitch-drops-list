@@ -42,7 +42,7 @@ fn main() -> Result<()> {
     writeln!(writer, "# Twitch Drops Campaigns\n")?;
 
     for game in game_data {
-        writeln!(writer, "{}", game.game_display_name)?;
+        writeln!(writer, "{}", escape_markdown(&game.game_display_name))?;
         for drop in game.drops {
             let days = drop.end_at.signed_duration_since(now).num_days() as i16;
             let end = if days < 0 {
@@ -55,7 +55,8 @@ fn main() -> Result<()> {
                 writeln!(
                     writer,
                     "  - {} ({} minutes watched)",
-                    reward.name, reward.minutes_required
+                    escape_markdown(&reward.name),
+                    reward.minutes_required
                 )?;
             }
             writeln!(writer)?;
@@ -74,6 +75,21 @@ fn fetch_game_data() -> Result<Vec<ApiGame>> {
         .context("failed to parse json response")?;
 
     Ok(game_data)
+}
+
+fn escape_markdown(text: &str) -> String {
+    const ESCAPE_CHARS: &[char] = &[
+        '\\', '`', '*', '_', '{', '}', '[', ']', '(', ')', '#', '+', '-', '.', '!', '|', '<', '>',
+        '~',
+    ];
+    let mut escaped = String::with_capacity(text.len());
+    for c in text.chars() {
+        if ESCAPE_CHARS.contains(&c) {
+            escaped.push('\\');
+        }
+        escaped.push(c);
+    }
+    escaped
 }
 
 fn format_days_from_now(days: i16) -> String {
