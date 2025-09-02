@@ -33,7 +33,12 @@ struct ApiReward {
 }
 
 fn main() -> Result<()> {
-    let game_data = fetch_game_data()?;
+    let mut games = fetch_game_data()?;
+    games.sort_by(|a, b| {
+        a.game_display_name
+            .to_lowercase()
+            .cmp(&b.game_display_name.to_lowercase())
+    });
     let now = Utc::now();
 
     let file = File::create("README.md");
@@ -41,7 +46,7 @@ fn main() -> Result<()> {
 
     writeln!(writer, "# Twitch Drops Campaigns\n")?;
 
-    for game in game_data {
+    for game in games {
         writeln!(writer, "{}", escape_markdown(&game.game_display_name))?;
         for drop in game.drops {
             let days = drop.end_at.signed_duration_since(now).num_days() as i16;
