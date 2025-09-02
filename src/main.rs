@@ -64,8 +64,8 @@ fn main() -> Result<()> {
                     reward.minutes_required
                 )?;
             }
-            writeln!(writer)?;
         }
+        writeln!(writer)?;
     }
 
     Ok(())
