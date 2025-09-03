@@ -1,7 +1,8 @@
 use anyhow::{Context, Result};
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, Duration, NaiveDate, Utc};
 use reqwest;
 use serde::Deserialize;
+use std::collections::BTreeMap;
 use std::fs::File;
 use std::io::{BufWriter, Write};
 
@@ -19,6 +20,7 @@ struct ApiGame {
 #[serde(rename_all = "camelCase")]
 struct ApiDrops {
     name: String,
+    start_at: DateTime<Utc>,
     end_at: DateTime<Utc>,
     #[serde(rename = "timeBasedDrops")]
     rewards: Vec<ApiReward>,
@@ -46,9 +48,52 @@ fn main() -> Result<()> {
 
     writeln!(writer, "# Twitch Drops Campaigns\n")?;
 
-    for game in games {
+    let updates_from = now - Duration::days(7);
+    let mut latest_updates: BTreeMap<NaiveDate, BTreeMap<String, Vec<&ApiDrops>>> = BTreeMap::new();
+
+    for game in &games {
+        for drop in &game.drops {
+            if drop.start_at >= updates_from {
+                let start_date = drop.start_at.date_naive();
+                latest_updates
+                    .entry(start_date)
+                    .or_default()
+                    .entry(game.game_display_name.clone())
+                    .or_default()
+                    .push(drop);
+            }
+        }
+    }
+    let mut dates: Vec<NaiveDate> = latest_updates.keys().cloned().collect();
+    dates.sort();
+    dates.reverse();
+
+    if dates.is_empty() {
+    } else {
+        writeln!(writer, "## Recent Drops\n")?;
+        for date in dates {
+            writeln!(writer, "{}", date.format("%Y-%m-%d"))?;
+            if let Some(games) = latest_updates.get(&date) {
+                for (game, drops) in games {
+                    writeln!(writer, "- {}", escape_markdown(game))?;
+                    for drop in drops {
+                        writeln!(writer, "  - {}", escape_markdown(&drop.name))?;
+                    }
+                }
+            }
+            writeln!(writer)?;
+        }
+    }
+
+    if games.is_empty() {
+        writeln!(writer, "No active drops campaigns found.")?;
+        return Ok(());
+    } else {
+        writeln!(writer, "## All drops\n")?;
+    }
+    for game in &games {
         writeln!(writer, "{}", escape_markdown(&game.game_display_name))?;
-        for drop in game.drops {
+        for drop in &game.drops {
             let days = drop.end_at.signed_duration_since(now).num_days() as i16;
             let end = if days < 0 {
                 "already ended".to_string()
@@ -56,7 +101,7 @@ fn main() -> Result<()> {
                 format!("ends {}", format_days_from_now(days))
             };
             writeln!(writer, "- {} ({})", drop.name, end)?;
-            for reward in drop.rewards {
+            for reward in &drop.rewards {
                 writeln!(
                     writer,
                     "  - {} ({} minutes watched)",
