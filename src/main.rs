@@ -7,6 +7,7 @@ use std::fs::File;
 use std::io::{BufWriter, Write};
 
 const DROPS_API_URL: &str = "https://twitch-drops-api.sunkwi.com/drops";
+const LATEST_WINDOW_DAYS: i64 = 7;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -48,7 +49,7 @@ fn main() -> Result<()> {
 
     writeln!(writer, "# Twitch Drops Campaigns\n")?;
 
-    let updates_from = now - Duration::days(7);
+    let updates_from = now - Duration::days(LATEST_WINDOW_DAYS);
     let mut latest_updates: BTreeMap<NaiveDate, BTreeMap<String, Vec<&ApiDrops>>> = BTreeMap::new();
 
     for game in &games {
