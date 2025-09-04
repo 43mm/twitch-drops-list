@@ -48,11 +48,20 @@ fn main() -> Result<()> {
     let mut writer = BufWriter::new(file.context("failed to create README.md")?);
 
     writeln!(writer, "# Twitch Drops Campaigns\n")?;
+    write_latest_drops(&games, now, &mut writer)?;
+    write_all_games(&games, now, &mut writer)?;
 
+    Ok(())
+}
+
+fn write_latest_drops(
+    games: &Vec<ApiGame>,
+    now: DateTime<Utc>,
+    writer: &mut BufWriter<File>,
+) -> Result<(), anyhow::Error> {
     let updates_from = now - Duration::days(LATEST_WINDOW_DAYS);
     let mut latest_updates: BTreeMap<NaiveDate, BTreeMap<String, Vec<&ApiDrops>>> = BTreeMap::new();
-
-    for game in &games {
+    for game in games {
         for drop in &game.drops {
             if drop.start_at >= updates_from {
                 let start_date = drop.start_at.date_naive();
@@ -68,8 +77,7 @@ fn main() -> Result<()> {
     let mut dates: Vec<NaiveDate> = latest_updates.keys().cloned().collect();
     dates.sort();
     dates.reverse();
-
-    if dates.is_empty() {
+    Ok(if dates.is_empty() {
     } else {
         writeln!(writer, "## Recent Drops\n")?;
         for date in dates {
@@ -84,15 +92,21 @@ fn main() -> Result<()> {
             }
             writeln!(writer)?;
         }
-    }
+    })
+}
 
+fn write_all_games(
+    games: &Vec<ApiGame>,
+    now: DateTime<Utc>,
+    writer: &mut BufWriter<File>,
+) -> Result<(), anyhow::Error> {
     if games.is_empty() {
         writeln!(writer, "No active drops campaigns found.")?;
         return Ok(());
     } else {
         writeln!(writer, "## All drops\n")?;
     }
-    for game in &games {
+    Ok(for game in games {
         writeln!(writer, "{}", escape_markdown(&game.game_display_name))?;
         for drop in &game.drops {
             let days = drop.end_at.signed_duration_since(now).num_days() as i16;
@@ -112,9 +126,7 @@ fn main() -> Result<()> {
             }
         }
         writeln!(writer)?;
-    }
-
-    Ok(())
+    })
 }
 
 fn fetch_game_data() -> Result<Vec<ApiGame>> {
