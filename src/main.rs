@@ -37,15 +37,12 @@ struct ApiReward {
 
 fn main() -> Result<()> {
     let mut games = fetch_game_data()?;
-    games.sort_by(|a, b| {
-        a.game_display_name
-            .to_lowercase()
-            .cmp(&b.game_display_name.to_lowercase())
-    });
-    let now = Utc::now();
+    games.sort_by_key(|g| g.game_display_name.to_lowercase());
 
     let file = File::create("README.md");
     let mut writer = BufWriter::new(file.context("failed to create README.md")?);
+
+    let now = Utc::now();
 
     writeln!(writer, "# Twitch Drops Campaigns\n")?;
     write_latest_drops(&games, now, &mut writer)?;
