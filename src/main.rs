@@ -41,7 +41,6 @@ fn main() -> Result<()> {
 
     let file = File::create("README.md");
     let mut writer = BufWriter::new(file.context("failed to create README.md")?);
-
     let now = Utc::now();
 
     writeln!(writer, "# Twitch Drops Campaigns\n")?;
@@ -138,16 +137,16 @@ fn fetch_game_data() -> Result<Vec<ApiGame>> {
 }
 
 fn escape_markdown(text: &str) -> String {
-    const ESCAPE_CHARS: &[char] = &[
-        '\\', '`', '*', '_', '{', '}', '[', ']', '(', ')', '#', '+', '-', '.', '!', '|', '<', '>',
-        '~',
-    ];
     let mut escaped = String::with_capacity(text.len());
     for c in text.chars() {
-        if ESCAPE_CHARS.contains(&c) {
-            escaped.push('\\');
+        match c {
+            '\\' | '`' | '*' | '_' | '{' | '}' | '[' | ']' | '(' | ')' | '#' | '+' | '-' | '.'
+            | '!' | '|' | '<' | '>' | '~' => {
+                escaped.push('\\');
+                escaped.push(c);
+            }
+            _ => escaped.push(c),
         }
-        escaped.push(c);
     }
     escaped
 }
