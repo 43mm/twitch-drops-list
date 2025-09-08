@@ -44,6 +44,10 @@ fn main() -> Result<()> {
     let now = Utc::now();
 
     writeln!(writer, "# Twitch Drops Campaigns\n")?;
+    if games.is_empty() {
+        writeln!(writer, "No active drops campaigns found.")?;
+        return Ok(());
+    }
     write_latest_drops(&games, now, &mut writer)?;
     write_all_games(&games, now, &mut writer)?;
 
@@ -51,58 +55,49 @@ fn main() -> Result<()> {
 }
 
 fn write_latest_drops(
-    games: &Vec<ApiGame>,
+    games: &[ApiGame],
     now: DateTime<Utc>,
-    writer: &mut BufWriter<File>,
-) -> Result<(), anyhow::Error> {
+    writer: &mut impl Write,
+) -> Result<()> {
     let updates_from = now - Duration::days(LATEST_WINDOW_DAYS);
-    let mut latest_updates: BTreeMap<NaiveDate, BTreeMap<String, Vec<&ApiDrops>>> = BTreeMap::new();
+
+    let mut latest_updates: BTreeMap<NaiveDate, BTreeMap<&str, Vec<&ApiDrops>>> = BTreeMap::new();
+
     for game in games {
         for drop in &game.drops {
             if drop.start_at >= updates_from {
-                let start_date = drop.start_at.date_naive();
                 latest_updates
-                    .entry(start_date)
+                    .entry(drop.start_at.date_naive())
                     .or_default()
-                    .entry(game.game_display_name.clone())
+                    .entry(game.game_display_name.as_str())
                     .or_default()
                     .push(drop);
             }
         }
     }
-    let mut dates: Vec<NaiveDate> = latest_updates.keys().cloned().collect();
-    dates.sort();
-    dates.reverse();
-    Ok(if dates.is_empty() {
-    } else {
-        writeln!(writer, "## Recent Drops\n")?;
-        for date in dates {
-            writeln!(writer, "{}", date.format("%Y-%m-%d"))?;
-            if let Some(games) = latest_updates.get(&date) {
-                for (game, drops) in games {
-                    writeln!(writer, "- {}", escape_markdown(game))?;
-                    for drop in drops {
-                        writeln!(writer, "  - {}", escape_markdown(&drop.name))?;
-                    }
-                }
+
+    if latest_updates.is_empty() {
+        return Ok(());
+    }
+
+    writeln!(writer, "## Recent Drops\n")?;
+
+    for (date, games_for_date) in latest_updates.iter().rev() {
+        writeln!(writer, "{}", date.format("%Y-%m-%d"))?;
+        for (game, drops) in games_for_date {
+            writeln!(writer, "- {}", escape_markdown(game))?;
+            for drop in drops {
+                writeln!(writer, "  - {}", escape_markdown(&drop.name))?;
             }
-            writeln!(writer)?;
         }
-    })
+        writeln!(writer)?;
+    }
+    Ok(())
 }
 
-fn write_all_games(
-    games: &Vec<ApiGame>,
-    now: DateTime<Utc>,
-    writer: &mut BufWriter<File>,
-) -> Result<(), anyhow::Error> {
-    if games.is_empty() {
-        writeln!(writer, "No active drops campaigns found.")?;
-        return Ok(());
-    } else {
-        writeln!(writer, "## All drops\n")?;
-    }
-    Ok(for game in games {
+fn write_all_games(games: &[ApiGame], now: DateTime<Utc>, writer: &mut impl Write) -> Result<()> {
+    writeln!(writer, "## All drops\n")?;
+    for game in games {
         writeln!(writer, "{}", escape_markdown(&game.game_display_name))?;
         for drop in &game.drops {
             let days = drop.end_at.signed_duration_since(now).num_days() as i16;
@@ -122,7 +117,8 @@ fn write_all_games(
             }
         }
         writeln!(writer)?;
-    })
+    }
+    Ok(())
 }
 
 fn fetch_game_data() -> Result<Vec<ApiGame>> {
