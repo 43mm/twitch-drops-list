@@ -1,5 +1,5 @@
 use anyhow::{Context, Result};
-use chrono::{DateTime, Duration, NaiveDate, Utc};
+use chrono::{DateTime, Duration, Utc};
 use reqwest;
 use serde::Deserialize;
 use std::collections::BTreeMap;
@@ -61,20 +61,19 @@ fn write_latest_drops(
 ) -> Result<()> {
     let updates_from = now - Duration::days(LATEST_WINDOW_DAYS);
 
-    let mut latest_updates: BTreeMap<NaiveDate, BTreeMap<&str, Vec<&ApiDrops>>> = BTreeMap::new();
-
-    for game in games {
-        for drop in &game.drops {
-            if drop.start_at >= updates_from {
-                latest_updates
-                    .entry(drop.start_at.date_naive())
-                    .or_default()
-                    .entry(game.game_display_name.as_str())
-                    .or_default()
-                    .push(drop);
-            }
-        }
-    }
+    let latest_updates = games
+        .iter()
+        .flat_map(|game| game.drops.iter().map(move |drop| (game, drop)))
+        .filter(|(_, drop)| drop.start_at > updates_from)
+        .fold(BTreeMap::new(), |mut acc, (game, drop)| {
+            let date = drop.start_at.date_naive();
+            let entry = acc.entry(date).or_insert_with(BTreeMap::new);
+            entry
+                .entry(&game.game_display_name)
+                .or_insert_with(Vec::new)
+                .push(drop);
+            acc
+        });
 
     if latest_updates.is_empty() {
         return Ok(());
