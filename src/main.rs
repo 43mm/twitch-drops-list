@@ -75,11 +75,16 @@ fn write_latest_drops(
             acc
         });
 
+    writeln!(writer, "## Recent Drops\n")?;
+
     if latest_updates.is_empty() {
+        writeln!(
+            writer,
+            "No drop campaigns started in the last {} days.\n",
+            LATEST_WINDOW_DAYS
+        )?;
         return Ok(());
     }
-
-    writeln!(writer, "## Recent Drops\n")?;
 
     for (date, games_for_date) in latest_updates.iter().rev() {
         writeln!(writer, "{}", date.format("%Y-%m-%d"))?;
