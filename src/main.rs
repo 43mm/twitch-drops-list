@@ -110,7 +110,7 @@ fn write_all_games(games: &[ApiGame], now: DateTime<Utc>, writer: &mut impl Writ
             } else {
                 format!("ends {}", format_days_from_now(days))
             };
-            writeln!(writer, "- {} ({})", drop.name, end)?;
+            writeln!(writer, "- {} ({})", escape_markdown(&drop.name), end)?;
             for reward in &drop.rewards {
                 writeln!(
                     writer,
