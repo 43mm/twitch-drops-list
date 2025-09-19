@@ -3,11 +3,12 @@ use chrono::{DateTime, Duration, Utc};
 use reqwest;
 use serde::Deserialize;
 use std::collections::BTreeMap;
-use std::fs::File;
 use std::io::{BufWriter, Write};
+use tempfile::NamedTempFile;
 
 const DROPS_API_URL: &str = "https://twitch-drops-api.sunkwi.com/drops";
 const LATEST_WINDOW_DAYS: i64 = 7;
+const FILE_NAME: &str = "README.md";
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -39,17 +40,26 @@ fn main() -> Result<()> {
     let mut games = fetch_game_data()?;
     games.sort_by_key(|g| g.game_display_name.to_lowercase());
 
-    let file = File::create("README.md");
-    let mut writer = BufWriter::new(file.context("failed to create README.md")?);
-    let now = Utc::now();
+    let mut temp_file = NamedTempFile::new().context("failed to create temporary file")?;
 
-    writeln!(writer, "# Twitch Drops Campaigns\n")?;
-    if games.is_empty() {
-        writeln!(writer, "No active drops campaigns found.")?;
-        return Ok(());
+    {
+        let mut writer = BufWriter::new(&mut temp_file);
+
+        writeln!(writer, "# Twitch Drops Campaigns\n")?;
+
+        if games.is_empty() {
+            writeln!(writer, "No active drops campaigns found.")?;
+            return Ok(());
+        }
+
+        let now = Utc::now();
+        write_latest_drops(&games, now, &mut writer)?;
+        write_all_games(&games, now, &mut writer)?;
     }
-    write_latest_drops(&games, now, &mut writer)?;
-    write_all_games(&games, now, &mut writer)?;
+
+    temp_file
+        .persist(FILE_NAME)
+        .context("failed to persist file")?;
 
     Ok(())
 }
