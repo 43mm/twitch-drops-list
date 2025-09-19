@@ -61,19 +61,18 @@ fn write_latest_drops(
 ) -> Result<()> {
     let updates_from = now - Duration::days(LATEST_WINDOW_DAYS);
 
-    let latest_updates = games
-        .iter()
-        .flat_map(|game| game.drops.iter().map(move |drop| (game, drop)))
-        .filter(|(_, drop)| drop.start_at > updates_from)
-        .fold(BTreeMap::new(), |mut acc, (game, drop)| {
-            let date = drop.start_at.date_naive();
-            let entry = acc.entry(date).or_insert_with(BTreeMap::new);
-            entry
+    let mut latest_updates: BTreeMap<chrono::NaiveDate, BTreeMap<&str, Vec<&ApiDrops>>> =
+        BTreeMap::new();
+    for game in games {
+        for drop in game.drops.iter().filter(|d| d.start_at > updates_from) {
+            latest_updates
+                .entry(drop.start_at.date_naive())
+                .or_default()
                 .entry(&game.game_display_name)
-                .or_insert_with(Vec::new)
+                .or_default()
                 .push(drop);
-            acc
-        });
+        }
+    }
 
     writeln!(writer, "## Recent Drops\n")?;
 
