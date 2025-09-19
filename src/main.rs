@@ -1,3 +1,4 @@
+//! Fetch active Twitch Drop campaigns and writes them to README.md
 use anyhow::{Context, Result};
 use chrono::{DateTime, Duration, Utc};
 use reqwest;
@@ -10,6 +11,8 @@ const DROPS_API_URL: &str = "https://twitch-drops-api.sunkwi.com/drops";
 const LATEST_WINDOW_DAYS: i64 = 7;
 const FILE_NAME: &str = "README.md";
 
+// Structs for deserialising API response
+// ApiGame contains the name of the game and a list of active drop campaigns
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
 struct ApiGame {
@@ -18,6 +21,7 @@ struct ApiGame {
     drops: Vec<ApiDrops>,
 }
 
+// ApiDrops contains the name of the drop campaign, start and end dates, and a list of rewards
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
 struct ApiDrops {
@@ -28,6 +32,7 @@ struct ApiDrops {
     rewards: Vec<ApiReward>,
 }
 
+// ApiReward contains the name of the reward and the number of minutes watched required to earn it
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
 struct ApiReward {
@@ -44,7 +49,6 @@ fn main() -> Result<()> {
 
     {
         let mut writer = BufWriter::new(&mut temp_file);
-
         writeln!(writer, "# Twitch Drops Campaigns\n")?;
 
         if games.is_empty() {
@@ -64,6 +68,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 
+// Write the list of drop campaigns that started recently, organised by date
 fn write_latest_drops(
     games: &[ApiGame],
     now: DateTime<Utc>,
@@ -108,6 +113,7 @@ fn write_latest_drops(
     Ok(())
 }
 
+// Write the full list of currently active drop campaigns by game
 fn write_all_games(games: &[ApiGame], now: DateTime<Utc>, writer: &mut impl Write) -> Result<()> {
     writeln!(writer, "## All drops\n")?;
     for game in games {
@@ -134,6 +140,7 @@ fn write_all_games(games: &[ApiGame], now: DateTime<Utc>, writer: &mut impl Writ
     Ok(())
 }
 
+// Fetches the list of currently active Twitch Drop campaigns, listed by game name
 fn fetch_game_data() -> Result<Vec<ApiGame>> {
     eprintln!("fetching open drop campaigns...");
 
@@ -145,6 +152,7 @@ fn fetch_game_data() -> Result<Vec<ApiGame>> {
     Ok(game_data)
 }
 
+// Escape markdown special characters
 fn escape_markdown(text: &str) -> String {
     let mut escaped = String::with_capacity(text.len());
     for c in text.chars() {
@@ -160,6 +168,7 @@ fn escape_markdown(text: &str) -> String {
     escaped
 }
 
+// Format a number of days from now into a human-readable string - for future dates only
 fn format_days_from_now(days: i16) -> String {
     match days {
         0 => "today".into(),
