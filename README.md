@@ -1,6 +1,6 @@
 # Twitch Drops Campaigns
 
-## Recent Drops
+## Latest drops
 
 2025-09-20
 - Albion Online
