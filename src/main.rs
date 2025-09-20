@@ -119,12 +119,7 @@ fn write_all_games(games: &[ApiGame], now: DateTime<Utc>, writer: &mut impl Writ
     for game in games {
         writeln!(writer, "{}", escape_markdown(&game.game_display_name))?;
         for drop in &game.drops {
-            let days = drop.end_at.signed_duration_since(now).num_days() as i16;
-            let end = if days < 0 {
-                "already ended".to_string()
-            } else {
-                format!("ends {}", format_days_from_now(days))
-            };
+            let end = ends_in_days(drop.end_at, now);
             writeln!(writer, "- {} ({})", escape_markdown(&drop.name), end)?;
             for reward in &drop.rewards {
                 writeln!(
@@ -166,6 +161,15 @@ fn escape_markdown(text: &str) -> String {
         }
     }
     escaped
+}
+
+// Calculate days until end date and format as a human-readable string
+fn ends_in_days(end: DateTime<Utc>, now: DateTime<Utc>) -> String {
+    let days = end.signed_duration_since(now).num_days() as i16;
+    if days < 0 {
+        return "already ended".to_string();
+    }
+    return format!("ends {}", format_days_from_now(days));
 }
 
 // Format a number of days from now into a human-readable string - for future dates only
