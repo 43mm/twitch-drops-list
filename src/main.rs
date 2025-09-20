@@ -9,7 +9,7 @@ use tempfile::NamedTempFile;
 
 const DROPS_API_URL: &str = "https://twitch-drops-api.sunkwi.com/drops";
 const LATEST_WINDOW_DAYS: i64 = 7;
-const FILE_NAME: &str = "README.md";
+const FILE_NAME: &str = "DROPS.md";
 
 // Structs for deserialising API response
 // ApiGame contains the name of the game and a list of active drop campaigns
