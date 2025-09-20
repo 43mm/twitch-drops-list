@@ -89,7 +89,7 @@ fn write_latest_drops(
         }
     }
 
-    writeln!(writer, "## Recent Drops\n")?;
+    writeln!(writer, "## Latest drops\n")?;
 
     if latest_updates.is_empty() {
         writeln!(
