@@ -4,135 +4,135 @@
 
 2025-09-20
 - Standoff 2
-  - SO2 PawPaw: Ep\.4
+  - SO2 PawPaw: Ep\.4 (ends today)
 
 2025-09-19
 - Albion Online
-  - Abyssal Depths 12 \- \#5/7
+  - Abyssal Depths 12 \- \#5/7 (ends today)
 - Black Desert
-  - 2025 BDO Drops \(Sep\. 19\)
+  - 2025 BDO Drops \(Sep\. 19\) (ends today)
 - Caliber
-  - Пятница 19\.09\.2025
+  - Пятница 19\.09\.2025 (ends tomorrow)
 - EVE Online
-  - EVE Vanguard Nemesis
+  - EVE Vanguard Nemesis (ends in 2 days)
 - Fortnite
-  - Fortnite Delulu Weekend
+  - Fortnite Delulu Weekend (ends in 2 days)
 - Ghosts of Tabor
-  - Op: Iron Viper Day 1
+  - Op: Iron Viper Day 1 (ends today)
 - Halo Infinite
-  - La Arena Escalation\-SEP19
+  - La Arena Escalation\-SEP19 (ends today)
 - Madden NFL 26
-  - Madden 26 Open Directory
+  - Madden 26 Open Directory (ends in 2 days)
 - Marbles on Stream
-  - Marble Day 214
+  - Marble Day 214 (ends today)
 - Mecha BREAK
-  - Mecha BREAK S1 Drops Pt\.1
+  - Mecha BREAK S1 Drops Pt\.1 (ends in 25 days)
 - Mir Korabley
-  - Lestakorabli \- 25\.9 \#3
-  - Обновление 25\.9: Часть 3
+  - Lestakorabli \- 25\.9 \#3 (ends in 6 days)
+  - Обновление 25\.9: Часть 3 (ends in 6 days)
 - NARAKA: BLADEPOINT
-  - NBPL 9\.19\-9\.22
+  - NBPL 9\.19\-9\.22 (ends in 2 days)
 - Out of the Park Baseball 26
-  - Affiliate 9/19/25
-  - Official 9/19/25
+  - Affiliate 9/19/25 (ends today)
+  - Official 9/19/25 (ends today)
 - Ravendawn
-  - September 3
+  - September 3 (ends in 6 days)
 - Rise Online
-  - ROW Drop 227
+  - ROW Drop 227 (ends today)
 - Sea of Thieves
-  - Season 17 Drop 2
+  - Season 17 Drop 2 (ends in 6 days)
 - Shakes and Fidget
-  - S&F Drops Set 3/3
-  - S&F Droplets
+  - S&F Drops Set 3/3 (ends tomorrow)
+  - S&F Droplets (ends in 5 days)
 - Wakfu
-  - VB Polarynox \- J4
+  - VB Polarynox \- J4 (ends today)
 - War Thunder
-  - Air Superiority Qual 2
+  - Air Superiority Qual 2 (ends in 2 days)
 - Warborne: Above Ashes
-  - Twitch chest \#1
+  - Twitch chest \#1 (ends today)
 - World of Tanks
-  - 2\.0 Token Store \#8
-  - Waffenträger: Paradox \#1
+  - 2\.0 Token Store \#8 (ends in 2 days)
+  - Waffenträger: Paradox \#1 (ends in 2 days)
 
 2025-09-18
 - Don't Starve Together
-  - Global Decon\. Staff
+  - Global Decon\. Staff (ends in 26 days)
 - Dragon Ball Gekishin Squadra
-  - SQUADRA Launch Drops 
+  - SQUADRA Launch Drops  (ends in 19 days)
 - Dying Light: The Beast
-  - Dying Light: The Beast
+  - Dying Light: The Beast (ends in 6 days)
 - The Elder Scrolls Online
-  - Undaunted Celebration
+  - Undaunted Celebration (ends in 2 days)
 - Throne and Liberty
-  - Hypeboost Campaign 1
+  - Hypeboost Campaign 1 (ends in 12 days)
 - UFL
-  -  September \#2
+  -  September \#2 (ends in 4 days)
 
 2025-09-17
 - Crystal of Atlan
-  - New Class Assassin
+  - New Class Assassin (ends in 10 days)
 - Hero Siege
-  - Hero Siege Season 8
+  - Hero Siege Season 8 (ends in 4 days)
 - Lost Ark
-  - September Evergreen Drop
+  - September Evergreen Drop (ends in 24 days)
 - RavenQuest
-  - Treasure Below Sept 3
+  - Treasure Below Sept 3 (ends in 3 days)
 - Shakes and Fidget
-  - S&F Drops Set 2/3
+  - S&F Drops Set 2/3 (ends tomorrow)
 - Tom Clancy's Rainbow Six Siege X
-  - R6X Y10SEASON3
+  - R6X Y10SEASON3 (ends in 11 days)
 - Trove
-  - Pack It Up\!
+  - Pack It Up\! (ends in 11 days)
 
 2025-09-16
 - Anno 117: Pax Romana
-  - Anno 117 Public Demo 2
+  - Anno 117 Public Demo 2 (ends in 23 days)
 - Arena Breakout: Infinite
-  - Partner Sticker Sub\-Drops
-  - S3 Steam Launch Drops
-  - Partner Sticker Sub\-Drops
-  - Partner Sticker Sub\-Drops
-  - Partner Sticker Sub\-Drops
-  - Partner Sticker Sub\-Drops
-  - Partner Sticker Sub\-Drops
-  - Partner Sticker Sub\-Drops
-  - Partner Sticker Sub\-Drops
-  - Partner Sticker Sub\-Drops
+  - Partner Sticker Sub\-Drops (ends in 22 days)
+  - S3 Steam Launch Drops (ends in 22 days)
+  - Partner Sticker Sub\-Drops (ends in 22 days)
+  - Partner Sticker Sub\-Drops (ends in 22 days)
+  - Partner Sticker Sub\-Drops (ends in 22 days)
+  - Partner Sticker Sub\-Drops (ends in 22 days)
+  - Partner Sticker Sub\-Drops (ends in 22 days)
+  - Partner Sticker Sub\-Drops (ends in 22 days)
+  - Partner Sticker Sub\-Drops (ends in 22 days)
+  - Partner Sticker Sub\-Drops (ends in 22 days)
 - Assassin's Creed Shadows
-  - AC Shadows x CyborgAngel
-  - AC Shadows x Fanum
-  - AC Shadows DLC launch
+  - AC Shadows x CyborgAngel (ends in 10 days)
+  - AC Shadows x Fanum (ends in 10 days)
+  - AC Shadows DLC launch (ends in 10 days)
 - Guild Wars 2
-  - Fractal Incursion
+  - Fractal Incursion (ends in 3 days)
 - Kakele Online \- MMORPG
-  - Kakele Online September 2
+  - Kakele Online September 2 (ends in 9 days)
 - Overwatch 2
-  - Season 18 Midseason
+  - Season 18 Midseason (ends in 19 days)
 - SMITE 2
-  - September Drops Week 3
+  - September Drops Week 3 (ends in 3 days)
 - Splinterlands
-  - September Week 2
+  - September Week 2 (ends in 3 days)
 - Voyagers of Nera
-  - Early Access Launch\!
-  - Early Access \- Echoes
+  - Early Access Launch\! (ends in 24 days)
+  - Early Access \- Echoes (ends in 24 days)
 - Wakfu
-  - Telenox
+  - Telenox (ends in 3 days)
 - World of Tanks Console
-  - Gods of Thunder Week 8
+  - Gods of Thunder Week 8 (ends in 3 days)
 
 2025-09-15
 - MARVEL Strike Force
-  - Insidious Six \- Week 3
+  - Insidious Six \- Week 3 (ends in 2 days)
 - Mobile Dungeon
-  - MD Drops Set 2
+  - MD Drops Set 2 (ends tomorrow)
 - NARAKA: BLADEPOINT
-  - S17 Weekly Drop 9\.15
+  - S17 Weekly Drop 9\.15 (ends tomorrow)
 - Overwatch 2
-  - OWCS 25' Stage 3 Groups 2
+  - OWCS 25' Stage 3 Groups 2 (ends in 15 days)
 - Phasmophobia
-  - 5th Anniversary Drop
+  - 5th Anniversary Drop (ends in 2 days)
 - Shakes and Fidget
-  - S&F Drops Set 1/3
+  - S&F Drops Set 1/3 (ends tomorrow)
 
 ## All drops
 
