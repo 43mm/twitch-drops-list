@@ -145,26 +145,26 @@ Anno 117: Pax Romana
   - Aquarius (120 minutes watched)
 
 Arena Breakout: Infinite
-- Partner Sticker Sub\-Drops (ends in 23 days)
+- Partner Sticker Sub\-Drops (ends in 22 days)
   - ImOw Sub\-Drop (0 minutes watched)
-- S3 Steam Launch Drops (ends in 23 days)
+- S3 Steam Launch Drops (ends in 22 days)
   - Plaster M24 Bolt\-Action Rifle (120 minutes watched)
   - DZ Style AKM Assault Rifle (240 minutes watched)
-- Partner Sticker Sub\-Drops (ends in 23 days)
+- Partner Sticker Sub\-Drops (ends in 22 days)
   - Arven93 Sub\-Drop (0 minutes watched)
-- Partner Sticker Sub\-Drops (ends in 23 days)
+- Partner Sticker Sub\-Drops (ends in 22 days)
   - Ralisco Sub\-Drop \(Reload\) (0 minutes watched)
-- Partner Sticker Sub\-Drops (ends in 23 days)
+- Partner Sticker Sub\-Drops (ends in 22 days)
   - kritikal Sub\-Drop \(Reload\) (0 minutes watched)
-- Partner Sticker Sub\-Drops (ends in 23 days)
+- Partner Sticker Sub\-Drops (ends in 22 days)
   - GL40LabsRaT Sub\-Drop (0 minutes watched)
-- Partner Sticker Sub\-Drops (ends in 23 days)
+- Partner Sticker Sub\-Drops (ends in 22 days)
   - BakedJake Sub\-Drop \(Reload\) (0 minutes watched)
-- Partner Sticker Sub\-Drops (ends in 23 days)
+- Partner Sticker Sub\-Drops (ends in 22 days)
   - QuattroAce Sub\-Drop \(Reload\) (0 minutes watched)
-- Partner Sticker Sub\-Drops (ends in 23 days)
+- Partner Sticker Sub\-Drops (ends in 22 days)
   - HITBOXKING Sub\-Drop (0 minutes watched)
-- Partner Sticker Sub\-Drops (ends in 23 days)
+- Partner Sticker Sub\-Drops (ends in 22 days)
   - LVNDMARK Sub\-Drop \(Reload\) (0 minutes watched)
 
 Assassin's Creed Shadows
@@ -337,7 +337,7 @@ League of Legends
   - That's LCK, Baby\!					 (0 minutes watched)
 
 Lost Ark
-- September Evergreen Drop (ends in 25 days)
+- September Evergreen Drop (ends in 24 days)
   - September Evergreen (240 minutes watched)
 
 Madden NFL 26
@@ -708,7 +708,7 @@ World of Tanks Console
   - 3 Days of Premium (240 minutes watched)
 
 Wuthering Waves
-- V2\.6 Wuthering Waves (ends in 5 days)
+- V2\.6 Wuthering Waves (ends in 4 days)
   - Astrite\*50 (120 minutes watched)
   - Advanced Energy Bag\*2 (90 minutes watched)
   - Advanced Energy Core\*3 (60 minutes watched)
