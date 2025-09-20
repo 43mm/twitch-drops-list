@@ -105,7 +105,12 @@ fn write_latest_drops(
         for (game, drops) in games_for_date {
             writeln!(writer, "- {}", escape_markdown(game))?;
             for drop in drops {
-                writeln!(writer, "  - {}", escape_markdown(&drop.name))?;
+                writeln!(
+                    writer,
+                    "  - {} ({})",
+                    escape_markdown(&drop.name),
+                    ends_in_days(drop.end_at, now)
+                )?;
             }
         }
         writeln!(writer)?;
