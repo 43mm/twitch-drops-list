@@ -21,8 +21,6 @@
   - Op: Iron Viper Day 1
 - Halo Infinite
   - La Arena Escalation\-SEP19
-- MLB The Show 25
-  - Championship Series
 - Madden NFL 26
   - Madden 26 Open Directory
 - Marbles on Stream
@@ -284,12 +282,6 @@ Ghosts of Tabor
   - Random Keycard (120 minutes watched)
   - Flare Shell (180 minutes watched)
 
-Grand Chase Classic
-- 9/19 Livestream (ends today)
-  - 30 Minute Twitch Drops Pack (30 minutes watched)
-  - 1 Hour Twitch Drops Pack (60 minutes watched)
-  - 2 Hours Twitch Drops Pack (120 minutes watched)
-
 Grand Theft Auto V
 - Marbella 3 (ends in 9 days)
   - GTA$200K (120 minutes watched)
@@ -386,14 +378,6 @@ Mir Korabley
   - «Малый набор» — Lestakorabli (60 minutes watched)
 - Обновление 25\.9: Часть 3 (ends in 6 days)
   - 25\.9 Боевая задача \#3 (240 minutes watched)
-
-MLB The Show 25
-- Championship Series (ends today)
-  - Twitch Pack (270 minutes watched)
-  - Twitch Pack (30 minutes watched)
-  - Twitch Pack (90 minutes watched)
-  - Twitch Pack (150 minutes watched)
-  - Twitch Pack Special (210 minutes watched)
 
 Mobile Dungeon
 - MD Drops Set 2 (ends tomorrow)
