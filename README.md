@@ -58,9 +58,9 @@
 - EVE Online
   - EVE Vanguard Nemesis (ends tomorrow)
 - Fortnite
-  - Fortnite Delulu Weekend (ends tomorrow)
+  - Fortnite Delulu Weekend (ends today)
 - Madden NFL 26
-  - Madden 26 Open Directory (ends tomorrow)
+  - Madden 26 Open Directory (ends today)
 - Mecha BREAK
   - Mecha BREAK S1 Drops Pt\.1 (ends in 24 days)
 - Mir Korabley
@@ -89,7 +89,7 @@
 - Dying Light: The Beast
   - Dying Light: The Beast (ends in 5 days)
 - The Elder Scrolls Online
-  - Undaunted Celebration (ends tomorrow)
+  - Undaunted Celebration (ends today)
 - Throne and Liberty
   - Hypeboost Campaign 1 (ends in 11 days)
 - UFL
@@ -101,7 +101,7 @@
 - Hero Siege
   - Hero Siege Season 8 (ends in 3 days)
 - Lost Ark
-  - September Evergreen Drop (ends in 24 days)
+  - September Evergreen Drop (ends in 23 days)
 - RavenQuest
   - Treasure Below Sept 3 (ends in 2 days)
 - Shakes and Fidget
@@ -126,9 +126,9 @@
   - Partner Sticker Sub\-Drops (ends in 21 days)
   - Partner Sticker Sub\-Drops (ends in 21 days)
 - Assassin's Creed Shadows
-  - AC Shadows x CyborgAngel (ends in 9 days)
-  - AC Shadows x Fanum (ends in 9 days)
-  - AC Shadows DLC launch (ends in 9 days)
+  - AC Shadows x CyborgAngel (ends in 8 days)
+  - AC Shadows x Fanum (ends in 8 days)
+  - AC Shadows DLC launch (ends in 8 days)
 - Guild Wars 2
   - Fractal Incursion (ends in 2 days)
 - Kakele Online \- MMORPG
@@ -205,15 +205,15 @@ Arena Breakout: Infinite
   - LVNDMARK Sub\-Drop \(Reload\) (0 minutes watched)
 
 Assassin's Creed Shadows
-- AC Shadows x CyborgAngel (ends in 9 days)
+- AC Shadows x CyborgAngel (ends in 8 days)
   - Messenger Boar Statue (240 minutes watched)
   - Moon Eater (360 minutes watched)
   - CyborgAngel \- Gizmo (120 minutes watched)
-- AC Shadows x Fanum (ends in 9 days)
+- AC Shadows x Fanum (ends in 8 days)
   - Messenger Boar Statue (240 minutes watched)
   - Moon Eater (360 minutes watched)
   - Fanum \- Curry (120 minutes watched)
-- AC Shadows DLC launch (ends in 9 days)
+- AC Shadows DLC launch (ends in 8 days)
   - Messenger Boar Statue (120 minutes watched)
   - Moon Eater (240 minutes watched)
 
@@ -300,11 +300,11 @@ EVE Online
   - Arkombine Arisen SKINs Crate (240 minutes watched)
 
 Fortnite
-- Fortnite Delulu Weekend (ends tomorrow)
+- Fortnite Delulu Weekend (ends today)
   - Hiccups Emote (60 minutes watched)
 
 Genshin Impact
-- V6\.0 Genshin Impact Drops (ends in 9 days)
+- V6\.0 Genshin Impact Drops (ends in 8 days)
   - Genshin Impact Drops (15 minutes watched)
   - Genshin Impact Drops (30 minutes watched)
   - Genshin Impact Drops (45 minutes watched)
@@ -380,11 +380,11 @@ Legion TD 2
   - Random Card (210 minutes watched)
 
 Lost Ark
-- September Evergreen Drop (ends in 24 days)
+- September Evergreen Drop (ends in 23 days)
   - September Evergreen (240 minutes watched)
 
 Madden NFL 26
-- Madden 26 Open Directory (ends tomorrow)
+- Madden 26 Open Directory (ends today)
   - Madden Twitch Pack (120 minutes watched)
   - Madden Twitch Pack (180 minutes watched)
   - Madden Twitch Pack (240 minutes watched)
@@ -438,7 +438,7 @@ NARAKA: BLADEPOINT
   - Twitch Drop Gift 9\.15 (60 minutes watched)
 - NBPL 9\.19\-9\.22 (ends tomorrow)
   - Splendor Treasure Choice Gift      (60 minutes watched)
-- S17 PARTNER DROPS II 9\.4 (ends in 11 days)
+- S17 PARTNER DROPS II 9\.4 (ends in 10 days)
   - Tae\*500 (120 minutes watched)
   - Spectral Silk\*500 (240 minutes watched)
   - Outfit Trial Choice Gift (360 minutes watched)
@@ -671,7 +671,7 @@ Standoff 2
   - reward\_stream\_crate\_5 (300 minutes watched)
 
 The Elder Scrolls Online
-- Undaunted Celebration (ends tomorrow)
+- Undaunted Celebration (ends today)
   - 100% XP Scroll (60 minutes watched)
 
 THE FINALS
@@ -788,7 +788,7 @@ World of Tanks Console
   - 3 Days of Premium (240 minutes watched)
 
 Wuthering Waves
-- V2\.6 Wuthering Waves (ends in 4 days)
+- V2\.6 Wuthering Waves (ends in 3 days)
   - Astrite\*50 (120 minutes watched)
   - Advanced Energy Bag\*2 (90 minutes watched)
   - Advanced Energy Core\*3 (60 minutes watched)
